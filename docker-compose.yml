@@ -1,0 +1,14 @@
+services:
+  bot:
+    build: .
+    container_name: bot_template
+    restart: unless-stopped
+
+    env_file:
+      - .env
+
+    volumes:
+      - ./logs:/app/logs
+
+    environment:
+      - TZ=${TIMEZONE:-UTC}
